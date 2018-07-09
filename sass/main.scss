@@ -19,3 +19,11 @@ Grey dark 3: #999
 
 @import "base/base";
 @import "base/typography";
+
+@import "layout/grid";
+@import "layout/header";
+@import "layout/sidebar";
+
+@import "pages/home";
+
+// var còn dùng dc cho cả 1 cụm giá trị như trong box-shadow  ở grid container
