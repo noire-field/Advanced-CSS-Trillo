@@ -26,6 +26,8 @@ Grey dark 3: #999
     box-shadow: none; } }
 
 :root {
+  --color-white: #fff;
+  --color-black: #000;
   --color-primary: #eb2f64;
   --color-primary-light: #FF3366;
   --color-primary-dark: #BA265D;
@@ -37,8 +39,8 @@ Grey dark 3: #999
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
-  --color-white: #fff;
-  --color-black: #000; }
+  --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+  --line: 1px solid var(--color-grey-light-2); }
 
 * {
   margin: 0;
@@ -90,7 +92,7 @@ body {
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2); }
+  border-bottom: var(--line); }
   .overview__heading {
     font-size: 2.25rem;
     font-weight: 300;
@@ -142,7 +144,7 @@ body {
   font-size: 1.4rem;
   height: 7rem;
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -279,5 +281,60 @@ body {
 
 .hotel-view {
   background-color: var(--color-white);
-  height: 80rem;
   flex: 1; }
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-white);
+  border-bottom: var(--line);
+  font-size: 1.2rem;
+  font-weight: 700px; }
+  .detail__description {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    flex: 0 0 60%;
+    margin-right: 4.5rem; }
+  .detail__user-reviews {
+    background-color: yellowgreen;
+    flex: 1; }
+  .detail__paragraph:not(:last-of-type) {
+    margin-bottom: 2rem; }
+  .detail__list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    display: flex;
+    flex-wrap: wrap; }
+    .detail__list__item {
+      flex: 0 0 50%;
+      margin-bottom: .7rem; }
+      .detail__list__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+        background-color: var(--color-primary);
+        -webkit-mask-image: url("../img/chevron-thin-right.svg");
+        -webkit-mask-size: cover;
+        mask-image: url("../img/chevron-thin-right.svg");
+        mask-size: cover; }
+  .detail__recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center; }
+    .detail__recommend__count {
+      margin-right: auto; }
+    .detail__recommend__photo {
+      box-sizing: content-box;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      border: 3px solid var(--color-white); }
+    .detail__recommend__photo:not(:last-child) {
+      margin-right: -1.5rem; }
