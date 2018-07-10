@@ -15,10 +15,15 @@ Grey dark 2: #777
 Grey dark 3: #999
 */
 
+@import "abstracts/animations";
 @import "abstracts/variables";
 
 @import "base/base";
 @import "base/typography";
+
+@import "components/button";
+@import "components/gallery";
+@import "components/overview";
 
 @import "layout/grid";
 @import "layout/header";
