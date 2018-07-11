@@ -10,12 +10,30 @@
     border-bottom: var(--line);
     font-size: 1.4rem;
 
+    @include respond(medium) {
+        padding: 3rem;
+    }
+
+    @include respond(small) {
+        flex-direction: column;
+    }
+
     &__description {
         background-color: var(--color-white);
         box-shadow: var(--shadow-light);
         padding: 3rem;
         flex: 0 0 60%;
         margin-right: 4.5rem;
+
+        @include respond(medium) {
+            padding: 2rem;
+            margin-right: 3rem;
+        }
+
+        @include respond(small) {
+            margin-right: 0;
+            margin-bottom: 3rem;
+        }
     }
 
     &__user-reviews {
@@ -51,15 +69,18 @@
                 margin-right: .7rem;
 
                 // Older browser
-                //background-image: url('../img/chevron-thin-right.svg');
-               // background-size: cover;
+                background-image: url('../img/chevron-thin-right.svg');
+                background-size: cover;
 
                 // Newer browser - masks
-                background-color: var(--color-primary);
-                -webkit-mask-image: url('../img/chevron-thin-right.svg');
-                -webkit-mask-size: cover;
-                mask-image: url('../img/chevron-thin-right.svg');
-                mask-size: cover;
+                @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+                    background-image: none;
+                    background-color: var(--color-primary);
+                    -webkit-mask-image: url('../img/chevron-thin-right.svg');
+                    -webkit-mask-size: cover;
+                    mask-image: url('../img/chevron-thin-right.svg');
+                    mask-size: cover;
+                }
             }
         }
     }
@@ -70,9 +91,13 @@
 
         display: flex;
         align-items: center;
-        
+
         &__count {
             margin-right: auto;
+        }
+
+        &__friends {
+            display: flex;
         }
 
         &__photo {
@@ -84,7 +109,7 @@
         }
 
         &__photo:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -92,6 +117,10 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+
+    @include respond(medium) {
+        padding: 2.5rem;
+    }
 
     &__book-now {
         font-size: 1.5rem;
